@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<script src="/examples/resources/js/mustache.min.js"></script>
+<script type="text/javascript"
+	src="/examples/resources/js/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/examples/resources/js/result.js"></script>
+<head>
+<meta charset=utf-8>
+<title>Book Search - Results</title>
+</head>
+<body>
+	{{#books}}
+	<table>
+		<tr>
+			<td>Book Name:</td>
+			<td>{{name}}</td>
+		</tr>
+		<tr>
+			<td>Book ISBN:</td>
+			<td>{{isbn}}</td>
+		</tr>
+		{{#authors}}
+		<tr>
+			<td>Author:</td>
+			<td>{{name}}</td>
+		</tr>
+		{{/authors}}
+		<td>Book Pages:</td>
+		<td>{{pages}}</td>
+		</tr>
+	</table>
+	<table border=1>
+		<tr>
+			<th>name</th>
+			<th>isbn</th>
+			<th>Author</th>
+			<th>pages</th>
+		</tr>
+		{{#similarBooks}}
+		<tr>
+			<td><a href={{url}}>{{name}}</a></td>
+			<td>{{isbn}}</td>
+			<td>{{#authors}}
+				<ul>
+					<li>{{name}}</li>
+				</ul> {{/authors}}
+			</td>
+			<td>{{pages}}</td>
+		</tr>
+		{{/similarBooks}}
+	</table>
+	<input type="button" name="moreBtn" id="moreButton" value="See More" />
+	{{/books}}
+
+
+
+	<div id="additionalBooks"></div>
+
+</body>
+</html>
